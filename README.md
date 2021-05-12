@@ -8,7 +8,7 @@ This library permits you to easily create translations for PHP scripts and apps.
 
 ## Install
 
-You can install the package with git clone and composer install in the directory.
+You can install the package with `git clone` and `composer install` in the directory.
 
 Or you can directly use composer :
 
@@ -21,8 +21,27 @@ composer require scoobydam/php-translator
 This library is an easy-to-use and light one. 
 
 ```php
+use ScoobyTranslator\Translator\Translator;
 
+$translator = new Translator(__DIR__ . '/translations', 'fr');
+$translator->translate('key_to_translate');
 ```
+
+This example will search for a `fr.php` file in the dir you passed the path in the first parameter.  
+This file might be like following
+
+```php
+<?php
+// __DIR__/translations/fr.php
+
+$translations = [
+    'general' => [
+        'key' => 'value',
+    ],
+];
+```
+
+It needs to define the `$translations` variable and at least the `general` context key.
 
 ## Full documentation
 

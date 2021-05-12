@@ -1,7 +1,7 @@
 {
     "name": "scoobydam/php-translator",
     "description": "Simple and easy to use PHP translator using key => value system",
-    "keywords": ["translation", "translator", "php", "php translator", "easy", "simple", "light"],
+    "keywords": ["translation", "translator", "php", "php translator", "easy", "simple", "light", "key", "value", "key value"],
     "type": "library",
     "license": "MIT",
     "minimum-stability": "stable",
