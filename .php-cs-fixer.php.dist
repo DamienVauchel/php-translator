@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__ . '/tests')
 ;
 
-return PhpCsFixer\Config::create()
+return (new \PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setRules([
         '@PhpCsFixer' => true,
@@ -18,8 +18,6 @@ return PhpCsFixer\Config::create()
         'explicit_string_variable' => false,
         'no_superfluous_elseif' => false,
         'ordered_class_elements' => false,
-        'php_unit_internal_class' => false,
-        'php_unit_ordered_covers' => false,
         'phpdoc_align' => ['align' => 'left'],
         'phpdoc_summary' => false,
         'phpdoc_types_order' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'],
