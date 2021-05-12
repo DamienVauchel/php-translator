@@ -1,0 +1,1 @@
+# ScoobyTranslator documentation
