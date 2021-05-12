@@ -2,19 +2,22 @@
 
 namespace ScoobyTranslator\Translator;
 
-use Exception;
+use ScoobyTranslator\Exceptions\NotFoundTranslation;
 use ScoobyTranslator\Exceptions\NotFoundTranslationFile;
 use ScoobyTranslator\Exceptions\NotFoundTranslationInFile;
 
 class Translator
 {
-    /** @var string[] */
+    /** @var string[][] */
     private $translations;
 
-    /** @throws Exception */
-    public function __construct(string $language = 'en')
+    /**
+     * @throws NotFoundTranslationFile
+     * @throws NotFoundTranslationInFile
+     */
+    public function __construct(string $translationsDirPath, string $language = 'en')
     {
-        $file = getcwd() . '/translations/' . $language . '.php';
+        $file = $translationsDirPath . '/' . $language . '.php';
 
         if (!is_file($file)) {
             throw new NotFoundTranslationFile($language);
@@ -33,7 +36,7 @@ class Translator
      * @param string[] $params
      * @param bool|float|int|string|null $variables
      *
-     * @throws Exception
+     * @throws NotFoundTranslation
      */
     public function translate(string $key, array $params = [], ...$variables): string
     {
@@ -42,7 +45,7 @@ class Translator
         }
 
         if (!isset($this->translations[$params['context']][$key])) {
-            return 'TRADUCTOR WARNING - Missing traduction key ' . $key . ' in context ' . $params['context'];
+            throw new NotFoundTranslation($key, $params['context']);
         }
 
         return sprintf($this->translations[$params['context']][$key], ...array_values($variables));
