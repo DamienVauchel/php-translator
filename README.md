@@ -1,5 +1,7 @@
 # Simple and light PHP translator
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/bdcdf7e6637a4b588ac23f1c7ae61818)](https://www.codacy.com/gh/DamienVauchel/php-translator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=DamienVauchel/php-translator&amp;utm_campaign=Badge_Grade)
+
 This library permits you to easily create translations for PHP scripts and apps.
 
 ## Prerequisites
